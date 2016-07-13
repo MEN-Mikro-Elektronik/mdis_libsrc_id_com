@@ -32,7 +32,6 @@
 +--------------------------------------*/
 /* swapped access */
 #ifdef ID_SW
-#	define MAC_MEM_MAPPED
 #	define MAC_BYTESWAP
 #endif
 

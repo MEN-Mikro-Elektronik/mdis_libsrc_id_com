@@ -52,7 +52,6 @@ static const char RCSid[]="$Id: usmrw.c,v 1.4 2008/09/18 17:28:59 CKauntz Exp $"
 +--------------------------------------*/
 /* swapped access */
 #ifdef ID_SW
-#	define MAC_MEM_MAPPED
 #	define MAC_BYTESWAP
 #endif
 
