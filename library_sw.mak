@@ -24,12 +24,12 @@
 #   (c) Copyright 1999 by MEN mikro elektronik GmbH, Nuernberg, Germany
 #*****************************************************************************
 
-
 MAK_NAME=id_sw
 
 MAK_LIBS=
 
-MAK_SWITCH=$(SW_PREFIX)ID_SW
+MAK_SWITCH=$(SW_PREFIX)ID_SW \
+		   $(SW_PREFIX)MAC_MEM_MAPPED
 
 MAK_INCL=$(MEN_MOD_DIR)/id_var.h \
          $(MEN_INC_DIR)/men_typs.h \
