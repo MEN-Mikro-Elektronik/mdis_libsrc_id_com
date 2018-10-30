@@ -23,60 +23,6 @@
  *                  devid,devrev,
  *                  devname)
  *
- *-------------------------------[ History ]---------------------------------
- *
- * $Log: c_drvadd.c,v $
- * Revision 1.14  2009/05/12 13:18:22  cs
- * R: m_write: wrong description of returnvalue in funciton header
- * M: cosmetics: fix description of return value in m_write function header
- *
- * Revision 1.13  2008/09/18 17:25:00  CKauntz
- * R1: No doxygen documentation
- * R2: No support for 64 bit OS
- * M1: Changed comments for doxygen documentation
- * M2: Changed base to U_INT32_OR_64 to support 64 bit OS
- *
- * Revision 1.12  2008/09/09 15:46:58  ufranke
- * R: diab compiler warning
- * M: cosmetics
- *
- * Revision 1.11  2006/09/01 10:52:07  DPfeuffer
- * - added support for MSx Module (devname generation)
- * - description for magic-id sense fixed
- *
- * Revision 1.10  2003/06/06 09:39:20  kp
- * fixed compiler warnings
- *
- * Revision 1.9  2003/05/05 15:27:12  dschmidt
- * cosmetics
- *
- * Revision 1.8  2003/01/13 11:15:19  dschmidt
- * m_getmodinfo() and _xtoa() added
- *
- * Revision 1.7  2000/09/07 15:39:32  Schmidt
- * nodoc for non-public functions added
- *
- * Revision 1.6  1999/08/06 09:36:59  kp
- * _READ and _WRITE macros caused name clashes with OS-9's stdio.h,
- * renamed to _READ_ and _WRITE_
- *
- * Revision 1.5  1999/04/26 14:39:20  Schmidt
- * includes added to support different variants
- *
- * Revision 1.4  1999/02/19 11:56:41  Franke
- * changed access via MACCESS macros
- * moved   bit definitions for SEL, CLK, DAT, DELAY from modulid.h
- * removed modulid.h
- *
- * Revision 1.3  1998/06/24 19:38:59  Franke
- * change no longer use of local modulid.h -> COM/MEN/modulid.h
- *
- * Revision 1.2  1998/06/02 08:59:40  see
- * RCSid must be a const char array
- *
- * Revision 1.1  1998/02/25 09:59:47  franke
- * Added by mcvs
- *
  *---------------------------------------------------------------------------
  * (c) Copyright 1993-2008 by MEN mikro elektronik GmbH, Nuremberg, Germany
  ******************************************************************************/

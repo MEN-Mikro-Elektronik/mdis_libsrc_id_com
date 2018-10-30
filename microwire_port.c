@@ -17,46 +17,7 @@
  *		   Note: Only D16 access implemented.
  *               Only all control/data bits in one register implemented.
  */
- /*-------------------------------[ History ]---------------------------------
- *
- * $Log: microwire_port.c,v $
- * Revision 1.10  2008/09/18 17:28:57  CKauntz
- * R1: No doxygen documentation
- * R2: No support for 64 bit OS
- * R3: m_read and m_write double in documentation
- * M1: Changed comments for doxygen documentation
- * M2: Changed base to U_INT32_OR_64 to support 64 bit OS
- * M3: Renamed m_read to m_read_loc and m_write to m_write_loc
- *
- * Revision 1.9  2008/09/09 15:46:14  ufranke
- * R: diab compiler warning
- * M: cosmetics
- *
- * Revision 1.8  2003/01/13 11:15:22  dschmidt
- * _clock(): cast added
- *
- * Revision 1.7  2000/09/07 15:39:37  Schmidt
- * nodoc for non-public functions added
- *
- * Revision 1.6  2000/04/04 13:29:37  Schmidt
- * casts added
- *
- * Revision 1.5  2000/03/16 16:10:09  kp
- * now including "id_var.h" for swapped variant
- *
- * Revision 1.4  1999/12/02 13:44:24  Schmidt
- * _MSC_VER switch: inline replaced with __inline
- *
- * Revision 1.3  1999/08/06 09:37:01  kp
- * _READ and _WRITE macros caused name clashes with OS-9's stdio.h,
- * renamed to _READ_ and _WRITE_
- *
- * Revision 1.2  1999/08/02 10:47:28  Schoberl
- * added casts
- *
- * Revision 1.1  1999/07/30 14:23:16  Franke
- * Initial Revision
- *
+ /*
  *---------------------------------------------------------------------------
  * (c) Copyright 1999..2008 by MEN mikro elektronik GmbH, Nuremberg, Germany
  ******************************************************************************/
@@ -74,6 +35,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 static const char RCSid[]="MCRW - MicroWire Port Lib $Id: microwire_port.c,v 1.10 2008/09/18 17:28:57 CKauntz Exp $";
 
 #include "id_var.h"
