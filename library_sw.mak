@@ -8,20 +8,8 @@
 #
 #                 variant id_sw for swapped access
 #
-#---------------------------------[ History ]---------------------------------
-#
-#   $Log: library_sw.mak,v $
-#   Revision 1.3  2007/08/09 09:15:58  CKauntz
-#   added usmrw.c for USM EEPROM read/write
-#
-#   Revision 1.2  2000/03/16 16:10:06  kp
-#   Added microwire_port
-#
-#   Revision 1.1  1999/04/26 14:40:23  Schmidt
-#   Initial Revision
-#
 #-----------------------------------------------------------------------------
-#   (c) Copyright 1999 by MEN mikro elektronik GmbH, Nuernberg, Germany
+#   Copyright (c) 1999-2019, MEN Mikro Elektronik GmbH
 #*****************************************************************************
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

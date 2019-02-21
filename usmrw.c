@@ -21,28 +21,9 @@
  * int usm_write(addr,index,data)      single write i
  *
  *
- *-------------------------------[ History ]------------------------------------
  *
- * $Log: usmrw.c,v $
- * Revision 1.4  2008/09/18 17:28:59  CKauntz
- * R1: No doxygen documentation
- * R2: No support for 64 bit OS
- * M1: Changed comments for doxygen documentation
- * M2: Changed base to U_INT32_OR_64 to support 64 bit OS
- *
- * Revision 1.3  2008/09/09 15:37:54  ufranke
- * R: diab compiler warning
- * M: cosmetics
- *
- * Revision 1.2  2007/08/09 10:26:20  CKauntz
- * cosmetics
- *
- * Revision 1.1  2007/08/09 09:16:00  CKauntz
- * Initial Revision
- *
- *
- *------------------------------------------------------------------------------
- * (c) Copyright 2007..2008 by MEN Mikro Elektronik GmbH, Nuremberg, Germany
+ *---------------------------------------------------------------------------
+ * Copyright (c) 2007-2019, MEN Mikro Elektronik GmbH
  ******************************************************************************/
 /*
  * This program is free software: you can redistribute it and/or modify

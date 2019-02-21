@@ -24,7 +24,7 @@
  *                  devname)
  *
  *---------------------------------------------------------------------------
- * (c) Copyright 1993-2008 by MEN mikro elektronik GmbH, Nuremberg, Germany
+ * Copyright (c) 1993-2019, MEN Mikro Elektronik GmbH
  ******************************************************************************/
 /*
  * This program is free software: you can redistribute it and/or modify
