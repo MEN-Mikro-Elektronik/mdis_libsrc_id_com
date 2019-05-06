@@ -43,6 +43,6 @@ This library contains of:\n
 
 
 */
-/*! \page _dummy MEN logo
+/*! \page iddummy MEN logo
  \menimages
 */
