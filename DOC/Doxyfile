@@ -3,6 +3,8 @@
 @INCLUDE_PATH = $(MEN_DOXYGENTMPL)
 @INCLUDE = DoxyfileCommon
 
+#MDIS_COMMIT=
+
 #---------------------------------------------------------------------------
 # General configuration options
 #---------------------------------------------------------------------------
