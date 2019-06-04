@@ -4,8 +4,6 @@
  *      Project: ID LIB
  *
  *       \author christian.kauntz@men.de
- *        $Date: 2008/09/18 17:25:02 $
- *    $Revision: 1.1 $
  *
  *        \brief Dokumentation of ID LIB
  *

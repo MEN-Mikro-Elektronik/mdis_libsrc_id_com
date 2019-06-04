@@ -4,8 +4,6 @@
  *      Project: common lib for m-modules
  *
  *       \author kp
- *        $Date: 2009/05/12 13:18:22 $
- *    $Revision: 1.14 $
  *
  *        \brief Handling Module-Identification (EEPROM)
  *               MICROWIRE Protocoll
@@ -41,7 +39,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-static const char RCSid[]="$Id: c_drvadd.c,v 1.14 2009/05/12 13:18:22 cs Exp $";
 
 #include "id_var.h"			/* defines variants */
 #include <MEN/men_typs.h>
@@ -49,6 +46,8 @@ static const char RCSid[]="$Id: c_drvadd.c,v 1.14 2009/05/12 13:18:22 cs Exp $";
 #include <MEN/oss.h>
 #include <MEN/maccess.h>
 #include <MEN/modcom.h>
+
+static const char IdentString[]=MENT_XSTR(MAK_REVISION);
 
 #define DELAY   20	                /* m_clock's delay time */
 

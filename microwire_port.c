@@ -4,8 +4,6 @@
  *      Project: ID LIB
  *
  *       \author uf
- *        $Date: 2008/09/18 17:28:57 $
- *    $Revision: 1.10 $
  *
  *        \brief Microwire bus protocol library for a port emulation.
  *
@@ -36,7 +34,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-static const char RCSid[]="MCRW - MicroWire Port Lib $Id: microwire_port.c,v 1.10 2008/09/18 17:28:57 CKauntz Exp $";
 
 #include "id_var.h"
 #include <MEN/men_typs.h>
@@ -46,6 +43,8 @@ static const char RCSid[]="MCRW - MicroWire Port Lib $Id: microwire_port.c,v 1.1
 
 #define MCRW_COMPILE
 #include <MEN/microwire.h>
+
+static const char IdentString[]=MENT_XSTR(MAK_REVISION);
 
 /*-----------------------------------------+
 |  TYPEDEFS                                |
@@ -121,7 +120,7 @@ static int m_write_loc       ( MCRW_HANDLE *mcrwHdl, void *base, u_int8  index, 
  ****************************************************************************/
 static char* mcrwIdent( void )
 {
-	return( (char*)RCSid );
+	return( (char*)IdentString );
 }/*mcrwIdent*/
 
 /************************************* delay *******************************/

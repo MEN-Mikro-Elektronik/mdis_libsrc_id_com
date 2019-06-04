@@ -4,8 +4,6 @@
  *      Project: common lib for m-modules usm
  *
  *       \author christian.kauntz@men.de
- *        $Date: 2008/09/18 17:28:59 $
- *    $Revision: 1.4 $
  *
  *        \brief Handling USModule-Identification (EEPROM)
  *               I2C Protocol
@@ -40,7 +38,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-static const char RCSid[]="$Id: usmrw.c,v 1.4 2008/09/18 17:28:59 CKauntz Exp $";
 
 /*--------------------------------------+
 |   INCLUDES                            |
@@ -55,6 +52,8 @@ static const char RCSid[]="$Id: usmrw.c,v 1.4 2008/09/18 17:28:59 CKauntz Exp $"
 #include <MEN/oss.h>
 #include <MEN/maccess.h>
 #include <MEN/modcom.h>
+
+static const char IdentString[]=MENT_XSTR(MAK_REVISION);
 
 /*--------------------------------------+
 |   DEFINES                             |

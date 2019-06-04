@@ -3,8 +3,6 @@
  *         Name: id_var.h
  *
  *       Author: ds
- *        $Date: 1999/04/26 14:40:21 $
- *    $Revision: 1.1 $
  * 
  *  Description: ID library defines for different variants
  *                      

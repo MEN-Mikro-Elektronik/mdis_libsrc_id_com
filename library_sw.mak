@@ -1,8 +1,6 @@
 #**************************  M a k e f i l e ********************************
 #
 #         Author: ds
-#          $Date: 2007/08/09 09:15:58 $
-#      $Revision: 1.3 $
 #
 #    Description: makefile descriptor for ID library
 #
@@ -26,10 +24,15 @@
 
 
 MAK_NAME=id_sw
+# the next line is updated during the MDIS installation
+STAMPED_REVISION="mdis_libsrc_id_com_01_55-4-g66207a2-dirty_2019-05-28"
+
+DEF_REVISION=MAK_REVISION=$(STAMPED_REVISION)
 
 MAK_LIBS=
 
 MAK_SWITCH=$(SW_PREFIX)ID_SW \
+		$(SW_PREFIX)$(DEF_REVISION) \
 		   $(SW_PREFIX)MAC_MEM_MAPPED
 
 MAK_INCL=$(MEN_MOD_DIR)/id_var.h \
