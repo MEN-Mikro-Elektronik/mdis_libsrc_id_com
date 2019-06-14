@@ -9,7 +9,6 @@
 # General configuration options
 #---------------------------------------------------------------------------
 PROJECT_NAME           = "ID Library"
-PROJECT_NUMBER         = 
 OUTPUT_DIRECTORY       = .
 HIDE_UNDOC_MEMBERS     = NO
 SHOW_INCLUDE_FILES     = YES
