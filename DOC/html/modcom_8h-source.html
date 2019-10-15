@@ -27,96 +27,94 @@
 00004 <span class="comment"> *      Project: common lib for m-modules</span>
 00005 <span class="comment"> *</span>
 00006 <span class="comment"> *       Author: kp</span>
-00007 <span class="comment"> *        $Date: 2008/09/16 18:41:21 $</span>
-00008 <span class="comment"> *    $Revision: 1.8 $</span>
+00007 <span class="comment"> *</span>
+00008 <span class="comment"> *  Description: Handling Module-Identification (EEPROM)</span>
 00009 <span class="comment"> *</span>
-00010 <span class="comment"> *  Description: Handling Module-Identification (EEPROM)</span>
-00011 <span class="comment"> *</span>
-00012 <span class="comment"> *     Required: -</span>
-00013 <span class="comment"> *     Switches: ID_SW - swapped access</span>
+00010 <span class="comment"> *     Required: -</span>
+00011 <span class="comment"> *     Switches: ID_SW - swapped access</span>
+00012 <span class="comment"> *</span>
+00013 <span class="comment"> *---------------------------[ Public Functions ]----------------------------</span>
 00014 <span class="comment"> *</span>
-00015 <span class="comment"> *---------------------------[ Public Functions ]----------------------------</span>
-00016 <span class="comment"> *</span>
-00017 <span class="comment"> * int m_mread(addr,buff)            multiple read i=0..15</span>
-00018 <span class="comment"> * int m_mwrite(addr,buff)           multiple write i=0..15</span>
-00019 <span class="comment"> * int m_read(addr,index)            single read i</span>
-00020 <span class="comment"> * int m_write(addr,index,data)      single write i</span>
-00021 <span class="comment"> * int usm_mread(addr,buff)          multiple read i=0..128</span>
-00022 <span class="comment"> * int usm_mwrite(addr,buff)         multiple write i=0..128</span>
-00023 <span class="comment"> * int usm_read(addr,index)          single read i</span>
-00024 <span class="comment"> * int usm_write(addr,index,data)    single write i</span>
-00025 <span class="comment"> *</span>
-00026 <span class="comment"> *---------------------------------------------------------------------------</span>
-00027 <span class="comment"> * Copyright (c) 1993-2019, MEN Mikro Elektronik GmbH</span>
-00028 <span class="comment"> ******************************************************************************/</span>
-00029 <span class="comment">/*</span>
-00030 <span class="comment"> * This program is free software: you can redistribute it and/or modify</span>
-00031 <span class="comment"> * it under the terms of the GNU General Public License as published by</span>
-00032 <span class="comment"> * the Free Software Foundation, either version 2 of the License, or</span>
-00033 <span class="comment"> * (at your option) any later version.</span>
-00034 <span class="comment"> *</span>
-00035 <span class="comment"> * This program is distributed in the hope that it will be useful,</span>
-00036 <span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-00037 <span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-00038 <span class="comment"> * GNU General Public License for more details.</span>
-00039 <span class="comment"> *</span>
-00040 <span class="comment"> * You should have received a copy of the GNU General Public License</span>
-00041 <span class="comment"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
-00042 <span class="comment"> */</span>
-00043 
-00044 <span class="preprocessor">#if !defined(_MODCOM_H)</span>
-00045 <span class="preprocessor"></span><span class="preprocessor">#  define _MODCOM_H</span>
-00046 <span class="preprocessor"></span>
-00047 <span class="preprocessor">#ifdef __cplusplus</span>
-00048 <span class="preprocessor"></span>   <span class="keyword">extern</span> <span class="stringliteral">"C"</span> {
-00049 <span class="preprocessor">#endif</span>
-00050 <span class="preprocessor"></span>
-00051 <span class="comment">/*--------------------------------------+</span>
-00052 <span class="comment">|   DEFINES                             |</span>
-00053 <span class="comment">+--------------------------------------*/</span>
-00054 <span class="comment">/* swapped access */</span>
-00055 <span class="preprocessor">#ifdef ID_SW</span>
-00056 <span class="preprocessor"></span><span class="preprocessor">#   define m_mread  ID_SW_m_mread</span>
-00057 <span class="preprocessor"></span><span class="preprocessor">#   define m_mwrite ID_SW_m_mwrite</span>
-00058 <span class="preprocessor"></span><span class="preprocessor">#   define m_write  ID_SW_m_write</span>
-00059 <span class="preprocessor"></span><span class="preprocessor">#   define m_read   ID_SW_m_read</span>
-00060 <span class="preprocessor"></span><span class="preprocessor">#   define m_getmodinfo ID_SW_usm_getmodinfo</span>
-00061 <span class="preprocessor"></span><span class="preprocessor">#   define usm_mread    ID_SW_usm_mread</span>
-00062 <span class="preprocessor"></span><span class="preprocessor">#   define usm_mwrite   ID_SW_usm_mwrite</span>
-00063 <span class="preprocessor"></span><span class="preprocessor">#   define usm_write    ID_SW_usm_write</span>
-00064 <span class="preprocessor"></span><span class="preprocessor">#   define usm_read     ID_SW_usm_read</span>
-00065 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-00066 <span class="preprocessor"></span>
-00067 <span class="comment">/* for m_getmodinfo */</span>
-00068 <span class="preprocessor">#define MODCOM_MOD_MEN      1</span>
-00069 <span class="preprocessor"></span><span class="preprocessor">#define MODCOM_MOD_THIRD    2</span>
-00070 <span class="preprocessor"></span>
-00071 <span class="comment">/*--------------------------------------+</span>
-00072 <span class="comment">|   PROTOTYPES                          |</span>
-00073 <span class="comment">+--------------------------------------*/</span>
-00074 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a25">m_mread</a>( u_int8 *addr, u_int16 *buff );
-00075 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a26">m_mwrite</a>( u_int8 *addr, u_int16 *buff );
-00076 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a27">m_write</a>( u_int8 *addr, u_int8 index, u_int16 data );
-00077 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a28">m_read</a>( U_INT32_OR_64 base, u_int8 index );
-00078 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a29">m_getmodinfo</a>(
-00079     U_INT32_OR_64 base,
-00080     u_int32 *modtype,
-00081     u_int32 *devid,
-00082     u_int32 *devrev,
-00083     <span class="keywordtype">char</span>    *devname );
-00084 <span class="keywordtype">int</span> <a class="code" href="usmrw_8c.html#a9">usm_mread</a>( u_int8 *addr, u_int16 *buff );
-00085 <span class="keywordtype">int</span> <a class="code" href="usmrw_8c.html#a10">usm_mwrite</a>( u_int8 *addr, u_int16 *buff );
-00086 <span class="keywordtype">int</span> <a class="code" href="usmrw_8c.html#a11">usm_write</a>( u_int8 *addr, u_int8 index, u_int16 data );
-00087 <span class="keywordtype">int</span> <a class="code" href="usmrw_8c.html#a12">usm_read</a>( U_INT32_OR_64 base, u_int8 index );
-00088 
-00089 <span class="preprocessor">#ifdef __cplusplus</span>
-00090 <span class="preprocessor"></span>   }
-00091 <span class="preprocessor">#endif</span>
-00092 <span class="preprocessor"></span>
-00093 <span class="preprocessor">#endif  </span><span class="comment">/*_MODCOM_H*/</span>
+00015 <span class="comment"> * int m_mread(addr,buff)            multiple read i=0..15</span>
+00016 <span class="comment"> * int m_mwrite(addr,buff)           multiple write i=0..15</span>
+00017 <span class="comment"> * int m_read(addr,index)            single read i</span>
+00018 <span class="comment"> * int m_write(addr,index,data)      single write i</span>
+00019 <span class="comment"> * int usm_mread(addr,buff)          multiple read i=0..128</span>
+00020 <span class="comment"> * int usm_mwrite(addr,buff)         multiple write i=0..128</span>
+00021 <span class="comment"> * int usm_read(addr,index)          single read i</span>
+00022 <span class="comment"> * int usm_write(addr,index,data)    single write i</span>
+00023 <span class="comment"> *</span>
+00024 <span class="comment"> *---------------------------------------------------------------------------</span>
+00025 <span class="comment"> * Copyright (c) 1993-2019, MEN Mikro Elektronik GmbH</span>
+00026 <span class="comment"> ******************************************************************************/</span>
+00027 <span class="comment">/*</span>
+00028 <span class="comment"> * This program is free software: you can redistribute it and/or modify</span>
+00029 <span class="comment"> * it under the terms of the GNU General Public License as published by</span>
+00030 <span class="comment"> * the Free Software Foundation, either version 2 of the License, or</span>
+00031 <span class="comment"> * (at your option) any later version.</span>
+00032 <span class="comment"> *</span>
+00033 <span class="comment"> * This program is distributed in the hope that it will be useful,</span>
+00034 <span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+00035 <span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+00036 <span class="comment"> * GNU General Public License for more details.</span>
+00037 <span class="comment"> *</span>
+00038 <span class="comment"> * You should have received a copy of the GNU General Public License</span>
+00039 <span class="comment"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+00040 <span class="comment"> */</span>
+00041 
+00042 <span class="preprocessor">#if !defined(_MODCOM_H)</span>
+00043 <span class="preprocessor"></span><span class="preprocessor">#  define _MODCOM_H</span>
+00044 <span class="preprocessor"></span>
+00045 <span class="preprocessor">#ifdef __cplusplus</span>
+00046 <span class="preprocessor"></span>   <span class="keyword">extern</span> <span class="stringliteral">"C"</span> {
+00047 <span class="preprocessor">#endif</span>
+00048 <span class="preprocessor"></span>
+00049 <span class="comment">/*--------------------------------------+</span>
+00050 <span class="comment">|   DEFINES                             |</span>
+00051 <span class="comment">+--------------------------------------*/</span>
+00052 <span class="comment">/* swapped access */</span>
+00053 <span class="preprocessor">#ifdef ID_SW</span>
+00054 <span class="preprocessor"></span><span class="preprocessor">#   define m_mread  ID_SW_m_mread</span>
+00055 <span class="preprocessor"></span><span class="preprocessor">#   define m_mwrite ID_SW_m_mwrite</span>
+00056 <span class="preprocessor"></span><span class="preprocessor">#   define m_write  ID_SW_m_write</span>
+00057 <span class="preprocessor"></span><span class="preprocessor">#   define m_read   ID_SW_m_read</span>
+00058 <span class="preprocessor"></span><span class="preprocessor">#   define m_getmodinfo ID_SW_usm_getmodinfo</span>
+00059 <span class="preprocessor"></span><span class="preprocessor">#   define usm_mread    ID_SW_usm_mread</span>
+00060 <span class="preprocessor"></span><span class="preprocessor">#   define usm_mwrite   ID_SW_usm_mwrite</span>
+00061 <span class="preprocessor"></span><span class="preprocessor">#   define usm_write    ID_SW_usm_write</span>
+00062 <span class="preprocessor"></span><span class="preprocessor">#   define usm_read     ID_SW_usm_read</span>
+00063 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+00064 <span class="preprocessor"></span>
+00065 <span class="comment">/* for m_getmodinfo */</span>
+00066 <span class="preprocessor">#define MODCOM_MOD_MEN      1</span>
+00067 <span class="preprocessor"></span><span class="preprocessor">#define MODCOM_MOD_THIRD    2</span>
+00068 <span class="preprocessor"></span>
+00069 <span class="comment">/*--------------------------------------+</span>
+00070 <span class="comment">|   PROTOTYPES                          |</span>
+00071 <span class="comment">+--------------------------------------*/</span>
+00072 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a25">m_mread</a>( u_int8 *addr, u_int16 *buff );
+00073 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a26">m_mwrite</a>( u_int8 *addr, u_int16 *buff );
+00074 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a27">m_write</a>( u_int8 *addr, u_int8 index, u_int16 data );
+00075 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a28">m_read</a>( U_INT32_OR_64 base, u_int8 index );
+00076 <span class="keywordtype">int</span> <a class="code" href="c__drvadd_8c.html#a29">m_getmodinfo</a>(
+00077     U_INT32_OR_64 base,
+00078     u_int32 *modtype,
+00079     u_int32 *devid,
+00080     u_int32 *devrev,
+00081     <span class="keywordtype">char</span>    *devname );
+00082 <span class="keywordtype">int</span> <a class="code" href="usmrw_8c.html#a9">usm_mread</a>( u_int8 *addr, u_int16 *buff );
+00083 <span class="keywordtype">int</span> <a class="code" href="usmrw_8c.html#a10">usm_mwrite</a>( u_int8 *addr, u_int16 *buff );
+00084 <span class="keywordtype">int</span> <a class="code" href="usmrw_8c.html#a11">usm_write</a>( u_int8 *addr, u_int8 index, u_int16 data );
+00085 <span class="keywordtype">int</span> <a class="code" href="usmrw_8c.html#a12">usm_read</a>( U_INT32_OR_64 base, u_int8 index );
+00086 
+00087 <span class="preprocessor">#ifdef __cplusplus</span>
+00088 <span class="preprocessor"></span>   }
+00089 <span class="preprocessor">#endif</span>
+00090 <span class="preprocessor"></span>
+00091 <span class="preprocessor">#endif  </span><span class="comment">/*_MODCOM_H*/</span>
+00092 
+00093 
 00094 
-00095 
-00096 
 </pre></div>
 	</div>
 </div>
@@ -124,8 +122,7 @@
 <div class="footer">
 <!-- Footer -->
 	<p class="footer">
-	Generated for ID Library using <a href="http://www.doxygen.org">doxygen</a>.<br>
-	Copyright &copy; 2019 <a href="http://www.men.de">MEN Mikro Elektronik GmbH</a>. All Rights Reserved.
+	Generated for ID Library using <a href="http://www.doxygen.org">doxygen</a>. All Rights Reserved.
 	</p>
 </div>
 
